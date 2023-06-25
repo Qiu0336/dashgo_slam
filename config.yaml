@@ -1,0 +1,61 @@
+%YAML:1.0
+
+# where to save map
+map_save_path: /home/qjy/dashgo_slam/src/map/
+
+#camera calibration 
+model_type: PINHOLE
+resolution: [752, 480] # width, height
+focal_length: 376.0     # focal_length
+fisheye: 0              # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
+
+intrinsics_l: [376.5896235226329, 378.10245878423785, 380.28462381474696, 241.719802297263] #fx, fy, cx, cy
+distortion_coefficients_l: [-0.2500164010667606, 0.041468279693769323, -8.115432765363388e-05, 0.00048247962645180646] # k1,k2,p1,p2
+
+intrinsics_r: [374.36435376684096, 376.21442254854344, 364.47497902080397, 244.300393845418] #fx, fy, cx, cy
+distortion_coefficients_r: [-0.24982529595144531, 0.04193046864626366, 0.00017272289536351696, 0.0007046365003399142] # k1,k2,p1,p2
+
+
+extrinsics_Tcrcl: [0.9999727729057308, 0.0033473677602274777, 0.006576364975211942, -0.1232787411871104,
+                   -0.003341389990989929, 0.9999939945639891, -0.0009197547882048952, 0.00011828949770287588,
+                    -0.006579404238798298, 0.0008977555458493087, 0.9999779524943678, -0.0008209704442395998,
+                    0.0, 0.0, 0.0, 1.0] # Tcrcl
+
+extrinsics_Tbc: [0.175, 0.060] #Tbc: dx, dy
+
+
+# dashgo_mapping parameters
+# frame saving rate
+distance_step: 0.05
+angular_step: 5
+
+# dashgo_calibration parameters
+# frame calib distance
+calib_angular_step: 15
+calib_frames: 10
+
+# dashgo_control parameters
+v_step: 0.01
+w_step: 0.02
+v_max: 0.4
+w_max: 0.5
+decay_factor: 5
+
+
+
+
+# viewer parameters
+show_image: 2         # 0:show none,   1:show monocular,   2:show stereo
+
+# pangolin viewer para. fixed
+view_PatchSize: 2.0
+view_PatchCount: 5
+view_PointSize: 8.0
+view_CameraSize: 0.3
+view_CameraLineWidth: 2.0
+
+
+
+
+
+
