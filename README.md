@@ -3,9 +3,12 @@
 Dashgo_slam
 ===============
 
-Dashgo_slam is a system used to achieve real-time 2D mapping and localzaition of the EAI DashGo D1 robot platform. It is developed based on ROS and C++, which consists of five ROS packages: dashgo_calibration, dashgo_control, dashgo_localization, dashgo_mapping, and dashgo_navigation, and a lunch file code: launch.py. 
+Dashgo_slam is a system used to achieve real-time 2D mapping and localzaition of the EAI DashGo D1 robot platform indoors. It is developed based on ROS and C++, which consists of five ROS packages: dashgo_calibration, dashgo_control, dashgo_localization, dashgo_mapping, and dashgo_navigation, and a lunch file code: launch.py.
 
-## Citing
+
+## License
+
+Dashgo_slam is under [GPLv3 license](https://github.com/Qiu0336/dashgo_slam/LICENSE).
 
 If you use this software in an academic work or project, please cite:
 ```@online{dashgo_slam, author = {Junyin Qiu}, 
@@ -14,6 +17,7 @@ If you use this software in an academic work or project, please cite:
   url = {https://github.com/Qiu0336/dashgo_slam.git}, 
   urldate = {2023-06-25} 
  }
+```
 
 ## Requirements
 
@@ -29,18 +33,60 @@ Pangolin, used for visulization of the trajectory;
 Opencv 3.4, used for image processing;
 Ceres 2.0 or 2.1, used for optimization;
 
+## Build
+
+First, build the DBoW3 lib in dashgo_localization and dashgo_mapping packages:
+```
+cd DBoW
+mkdir build && cd build
+cmake ..
+make -j4
+```
+
+Then, build the ros packages
+```
+cd workspace
+catkin_make
+```
+
 ## How to use
 
+First, run the ROS core and launch the DashGo robot.
+```
+roscore
+python launch.y
+```
+
+Then, if the extrinsic parameters between the Wheel and the Cameras haven't been calibrated, just perform calibration.
+```
+rosrun dashgo_slam dashgo_control
+rosrun dashgo_slam dashgo_calibration
+```
+Do Control the robot to circle in place, the calibrated parameters (x,y) can be obtained.
 
 
-### Classes 
+Mapping: build the map of the indoor environment, note that the map is just used for relocalization, 
+```
+rosrun dashgo_slam dashgo_control
+rosrun dashgo_slam dashgo_mapping
+```
+When running dashgo_mapping, the odometry is realized by the Wheels, and images just are saved in the system for loop closing, when detecting loop, a 3DoF loop correction is performed to reduce the trajectory drift. After running, the saved map is composed of frame poses, keypoints, descriptors and the tree of BoW.
 
-DBoW3 has two main classes: `Vocabulary` and `Database`. These implement the visual vocabulary to convert images into bag-of-words vectors and the database to index images.
-See utils/demo_general.cpp for an example
+Localization: loading the map saved in mapping stage, performing visual relocalization or wheel odometry, publishing the final pose of the robot.
+```
+rosrun dashgo_slam dashgo_localization
+```
+Dashgo_localization will try to perform relocalization by finding the loop frame in the map, otherwise it will estimate the pose by wheel odometry only. the final pose is published to /pose topic.
 
-### Load/Store Vocabulary
+Navigation: to be developed. 
+```
+rosrun dashgo_slam dashgo_navigation
+```
+Dashgo_navigation subscribes /pose topic published in dashgo_localization. Since the 2D pose is received, some upstream and complicated tasks can be developed and achieved, such as robot navigation, targeted moving, following fixed trajectories and so on.
 
-The file orbvoc.dbow3 is the ORB vocabulary in ORBSLAM2 but in binary format of DBoW3:  https://github.com/raulmur/ORB_SLAM2/tree/master/Vocabulary
- 
+
+## Some Running Examples
+
+
 
 
