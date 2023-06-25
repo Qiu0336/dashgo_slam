@@ -8,7 +8,7 @@ Dashgo_slam is a system used to achieve real-time 2D mapping and localzaition of
 
 ## License
 
-Dashgo_slam is under [GPLv3 license](https://github.com/Qiu0336/dashgo_slam/LICENSE).
+Dashgo_slam is under [GPLv3 license](https://github.com/Qiu0336/dashgo_slam/blob/main/LICENSE).
 
 If you use this software in an academic work or project, please cite:
 ```@online{dashgo_slam, author = {Junyin Qiu}, 
@@ -21,17 +21,25 @@ If you use this software in an academic work or project, please cite:
 
 ## Requirements
 
-Devices:
-mobile robot platform: EAI DashGo D1;
-Stereo (Inertial) camera sensors: MYNYEYE S1030 or 1040;
-Laptop with Linux and ROS system installed.
+#Devices:
 
-Softwares:
-MYNYEYE SDK, used for capturing the images;
-Eigen library, used for Matrix operation;
-Pangolin, used for visulization of the trajectory;
-Opencv 3.4, used for image processing;
-Ceres 2.0 or 2.1, used for optimization;
+mobile robot platform: EAI DashGo D1
+
+Stereo (Inertial) camera sensors: MYNYEYE S1030 or 1040
+
+Laptop with Linux and ROS system installed
+
+#Softwares:
+
+MYNYEYE SDK, used for capturing the images
+
+Eigen library, used for Matrix operation
+
+Pangolin, used for visulization of the trajectory
+
+Opencv 3.4, used for image processing
+
+Ceres 2.0 or 2.1, used for optimization
 
 ## Build
 
