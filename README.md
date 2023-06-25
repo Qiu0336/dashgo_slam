@@ -105,8 +105,12 @@ Mapping stage (estimate 2D trajectory with loop closure):
 ![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result1.png)
 ![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result2.png)
 ![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result3.png)
+
 where the green line is the corrected trajectory, while pink line is the origin one.
 Red pyramid denotes camera position and orientation.
+
+loop matching:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/loop_matching.png)
 
 Localization stage:
 w/o relocalization, estimated by wheel odometry:
@@ -114,9 +118,6 @@ w/o relocalization, estimated by wheel odometry:
 
 w/ relocalization, correct the pose and reduce the pose drift:
 ![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/w_relo.png)
-
-loop matching:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/loop_matching.png)
 
 
 
