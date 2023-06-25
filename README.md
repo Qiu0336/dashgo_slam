@@ -1,40 +1,37 @@
 
 
 Dashgo_slam
-=====
+===============
 
+Dashgo_slam is a system used to achieve real-time 2D mapping and localzaition of the EAI DashGo D1 robot platform. It is developed based on ROS and C++, which consists of five ROS packages: dashgo_calibration, dashgo_control, dashgo_localization, dashgo_mapping, and dashgo_navigation, and a lunch file code: launch.py. 
 
-Dashgo_slam is an improved version of the DBow2 library, an open source C++ library for indexing and converting images into a bag-of-word representation. It implements a hierarchical tree for approximating nearest neighbours in the image feature space and creating a visual vocabulary. DBoW3 also implements an image database with inverted and direct files to index images and enabling quick queries and feature comparisons. The main differences with the previous DBow2 library are:
-
-  * DBoW3 only requires OpenCV.  DBoW2 dependency of DLIB is been removed.
-  * DBoW3 is able to use both binary and floating point descriptors out of the box. No need to reimplement any class for any descriptor.
-  * DBoW3 compiles both in linux and windows.  
-  * Some pieces of code have been rewritten to optimize speed. The interface of DBoW3 has been simplified.
-  * Possibility of using binary files. Binary files are 4-5 times faster to load/save than yml. Also, they can be compressed.
-  * Compatible with DBoW2 yml files
-
-## 
 ## Citing
 
 If you use this software in an academic work or project, please cite:
-```@online{DBoW3, author = {Junyin Qiu}, 
-   title = {{Dashgo_slam} Dashgo_slam}, 
+```@online{dashgo_slam, author = {Junyin Qiu}, 
+   title = {{dashgo_slam} dashgo_slam}, 
   year = 2023, 
   url = {https://github.com/Qiu0336/dashgo_slam.git}, 
   urldate = {2023-06-25} 
- } 
-```
+ }
 
+## Requirements
 
-## Installation notes
- 
-DBoW3 requires OpenCV, MYNYEYE  only.
+Devices:
+mobile robot platform: EAI DashGo D1;
+Stereo (Inertial) camera sensors: MYNYEYE S1030 or 1040;
+Laptop with Linux and ROS system installed.
 
-For compiling the utils/demo_general.cpp you must compile against OpenCV 3. If you have installed the contrib_modules, use cmake option -DUSE_CONTRIB=ON to enable SURF.
+Softwares:
+MYNYEYE SDK, used for capturing the images;
+Eigen library, used for Matrix operation;
+Pangolin, used for visulization of the trajectory;
+Opencv 3.4, used for image processing;
+Ceres 2.0 or 2.1, used for optimization;
 
 ## How to use
 
-Check utils/demo_general.cpp
+
 
 ### Classes 
 
