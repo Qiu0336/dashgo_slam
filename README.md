@@ -5,33 +5,6 @@ Dashgo_slam
 
 Dashgo_slam is a system used to achieve real-time 2D mapping and localzaition of the EAI DashGo D1 robot platform indoors. It is developed based on ROS and C++, which consists of five ROS packages: dashgo_calibration, dashgo_control, dashgo_localization, dashgo_mapping, and dashgo_navigation, and a lunch file code: launch.py.
 
-## Demo
-
-Device: Dashgo D1 and MYNYEYE stereo camera  sensors:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/device.png)
-
- Running interface:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/device.png)
-
-Mapping stage (estimate 2D trajectory with loop closure):
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result0.png)
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result1.png)
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result2.png)
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result3.png)
-where the green line is the corrected trajectory, while pink line is the origin one.
-Red pyramid denotes camera position and orientation.
-
-Localization stage:
-w/o relocalization, estimated by wheel odometry:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/w_o_relo.png)
-
-w/ relocalization, correct the pose and reduce the pose drift:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/w_relo.png)
-
-loop matching:
-![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/loop_matching.png)
-
-
 ## License
 
 Dashgo_slam is under [GPLv3 license](https://github.com/Qiu0336/dashgo_slam/blob/main/LICENSE).
@@ -119,8 +92,31 @@ rosrun dashgo_slam dashgo_navigation
 Dashgo_navigation subscribes /pose topic published in dashgo_localization. Since the 2D pose is received, some upstream and complicated tasks can be developed and achieved, such as robot navigation, targeted moving, following fixed trajectories and so on.
 
 
-## Some Running Examples
+## Demo
 
+Device: Dashgo D1 and MYNYEYE stereo camera  sensors:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/device.png)
+
+ Running interface:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/interface.png)
+
+Mapping stage (estimate 2D trajectory with loop closure):
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result0.png)
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result1.png)
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result2.png)
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/result3.png)
+where the green line is the corrected trajectory, while pink line is the origin one.
+Red pyramid denotes camera position and orientation.
+
+Localization stage:
+w/o relocalization, estimated by wheel odometry:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/w_o_relo.png)
+
+w/ relocalization, correct the pose and reduce the pose drift:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/w_relo.png)
+
+loop matching:
+![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/loop_matching.png)
 
 
 
