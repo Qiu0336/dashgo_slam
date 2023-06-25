@@ -95,6 +95,7 @@ Dashgo_navigation subscribes /pose topic published in dashgo_localization. Since
 ## Demo
 
 Device: Dashgo D1 and MYNYEYE stereo camera  sensors:
+
 ![image](https://github.com/Qiu0336/dashgo_slam/blob/main/demo/device.png)
 
  Running interface:
